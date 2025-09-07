@@ -3,9 +3,9 @@ A simple console-based product inventory management system built with Python usi
 
 Description:
 
-What it is: A product inventory management system.
-How it works: It's console-based.
-The technology: It's built with Python.
+What it is: A product inventory management system.<br>
+How it works: It's console-based.<br>
+The technology: It's built with Python.<br>
 The methodology: It uses OOP.
 
 
