@@ -7,20 +7,25 @@ class Inventory:
             return self.products.get(code)
         else:
             print(f"Product {code} not found.")
+            return None
 
     def add_product(self, product):
         if product.code in self.products:
             print(f"Product {product.code} already exist.")
+            return None
         else:
             self.products[product.code] = product
             print(f"Product {product.code} added successfully.")
+            return product
 
     def remove_product(self, code):
         if code in self.products:
-            del self.products[code]
+            remove_index = self.products.pop(code)
             print(f"Product {code} removed successfully.")
+            return remove_index
         else:
             print(f"Product {code} is not found.")
+            return None
 
     def update_product(self, code, **kwargs):
         if code in self.products:
@@ -32,8 +37,10 @@ class Inventory:
                 else:
                     print(f"Attribute {key} not found.")
             print(f"Product {code} updated successfully.")
+            return self.products[code]
         else:
             print(f"Product {code} is not found.")
+            return None
 
     def search_product(self, term):
         found_products  = []
@@ -48,9 +55,9 @@ class Inventory:
                 found_products.append(product)
 
         if found_products:
-            return " & ".join([f"{item.name}, Price: ${item.price}, Qty: {item.qty}" for item in found_products])
+            return " & ".join([f"{item.name}" for item in found_products])
         else:
-            return f"No results found for query {term}"
+            return None
 
     def display_inventory(self):
         if not self.products:

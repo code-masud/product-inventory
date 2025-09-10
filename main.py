@@ -1,8 +1,6 @@
-from category import Category
-from product import Product
-from inventory import Inventory
+from models import Category, Product, Inventory
 
-if __name__ == '__main__':
+def demonstrate_inventory():
     cat1 = Category("Laptop")
     cat2 = Category("Components")
 
@@ -30,3 +28,14 @@ if __name__ == '__main__':
     query = 'o'
     search_result = my_inventory.search_product(query)
     print(f"Search for '{query}': {search_result}")
+
+def main():
+    try:
+        demonstrate_inventory()
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return 1
+    return 0
+
+if __name__ == '__main__':
+    exit(main())
